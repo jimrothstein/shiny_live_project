@@ -1,0 +1,71 @@
+---
+title: Pairing {quarto-shinylive} and {quarto-webr}
+format:
+  html:
+    resources: 
+      - shinylive-sw.js
+embed-resources: false
+engine: knitr
+filters:
+  - webr
+  - shinylive
+---
+
+Example of quarto qmd file, with embed web-r
+quarto-shinylive is using a server,quarto-webr is using WASM as server  
+
+<https://quarto-webr.thecoatlessprofessor.com/qwebr-first-steps.html>
+
+USAGE:   render as quarto file
+
+## `{quarto-shinylive}`
+
+```{shinylive-r}
+#| standalone: true
+library(shiny)
+
+ui <- fluidPage(
+   titlePanel("Hello Shiny!")
+)
+
+server <- function(input, output, session) {
+  # code
+}
+
+shinyApp(ui, server)
+```
+
+## `{quarto-webr}`
+
+
+3 types of context
+<https://quarto-webr.thecoatlessprofessor.com/qwebr-internal-cell.html>
+
+### Interactive
+- context: interactive (show/change code)
+(you can change this code!)
+
+```{webr-r}
+print("hello {quarto-webr} world!")
+
+2 + 2
+```
+
+### Non-interactive
+
+- context: output (no code, results only)
+
+```{webr-r}
+#| context: output
+2+2
+cat("And, this is a non-interactive cell", fill = FALSE)
+```
+***
+
+- context: setup (show nothing!)
+
+```{webr-r}
+#| context: setup
+2+2
+cat("And, this is interactive cell", fill = FALSE)
+```
