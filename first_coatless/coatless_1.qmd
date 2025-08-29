@@ -9,6 +9,8 @@ engine: knitr
 filters:
   - webr
   - shinylive
+editor_options: 
+  chunk_output_type: console
 ---
 
 Example of quarto qmd file, with embed web-r
