@@ -1,11 +1,10 @@
-## Purpose:  simple shiny app, but runs in browser (webR)
 library(shiny)
 
 # Define UI for app that draws a histogram ----
 ui <- fluidPage(
 
   # App title ----
-  titlePanel("Hello Shiny! with webR"),
+  titlePanel("Hello Shiny!"),
 
   # Sidebar layout with input and output definitions ----
   sidebarLayout(
